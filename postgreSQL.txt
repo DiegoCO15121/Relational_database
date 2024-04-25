@@ -1,0 +1,41 @@
+"psql --username=() --dbname=postgres" serves to log in to postgreSQL.
+"\l" is used to list the db.
+"CREATE DATABASE database_name;" serves to create a db.
+"\c database_name" is used to connect to a db.
+"\d" serves to display the tables of the db.
+"CREATE TABLE table_name(column_name DATATYPE CONSTRAINTS);" is used to create a table into the db. Inside parenthesis you can put columns for a table. 
+"\d table_name" is used to view more details about a table.
+"ALTER TABLE table_name ADD COLUMN column_name datatype;" is used to add a column to a table.
+"ALTER TABLE table_name DROP COLUMN column_name;" is used to remove a column.
+"ALTER TABLE table_name RENAME COLUMN column_name TO new_name;" is used to rename a column.
+"INSERT INTO table_name(column_1, column_2) VALUES(value1, value2);" is used to add data (rows) to the table.
+"SELECT columns FROM table_name;" is used to view the data in a table (if we use "*" insted of columns, we can see all columns).
+"DELETE FROM table_name WHERE condition;" is used to delete a row.
+"DROP TABLE table_name;" is used to delete a table in a db.
+"ALTER DATABASE database_name RENAME TO new_database_name;" is used to rename a db.
+"DROP DATABASE name_database" is used to delete a db.
+
+//SERIAL type will make a column an INT with a NOT NULL constraint, and automatically increment the integer when a new row is added (NOT NULL can be added right next to the data type). 
+"UPDATE table_name SET column_name=new_value WHERE condition;" is used to change a value into the db.
+"SELECT columns FROM table_name ORDER BY column_name;" is used to put table data in order.
+"ALTER TABLE table_name ADD PRIMARY KEY(column_name);" is used to add a primary key ( It's a column that uniquely identifies each row in the table).
+"ALTER TABLE table_name DROP CONSTRAINT constraint_name;" is used to drop a constraint.
+//NUMERIC(4, 1). That data type is for decimals. NUMERIC(4, 1) has up to four digits and one of them has to be to the right of the decimal.
+"ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONSTRAINT REFERENCES referenced_table_name(referenced_column_name);" is used to create a column as a foreing key.
+
+//In case that we want a relationship one-to-much, we won't type the following command.
+"ALTER TABLE table_name ADD UNIQUE(column_name);" is used to enforce one-to-one relationship (table_name will be the table that has the FK and column_name will be a FK).
+"ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;" is used to make a column NOT NULL.
+//When we want to add more information to a table with FK, we need to specify the value of FK (example: INSERT INTO table_name(id_FK,columnx) VALUES(1, valuex)).
+"SELECT columns FROM table_name WHERE condition;" is used to view specific columns and specific rows.
+
+//"Many-to-many" relationships usually use a junction table to link two tables together, forming two "one-to-many" relationships. 
+"ALTER TABLE table_name ADD FOREIGN KEY(column_name) REFERENCES referenced_table(referenced_column);" is used to set an existing column as a foreign key.
+"ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);" is used to create a primary key from two columns, known as a composite primary key.
+"SELECT columns FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;" is used to see all the info from two tables (relationship one-to-one amd one-to-many)
+"SELECT columns FROM junction_table
+FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column
+FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;"  is used to view a relationship many-to-many
+
+// pg_dump -cC --inserts -U freecodecamp universe > universe.sql
+//Rebuild database: psql -U postgres < universe.sql
