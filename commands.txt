@@ -1,0 +1,59 @@
+pwd stands for "print working directory".
+ls stands "list" (to see what's in the folder).
+use cd <folder_name> to go into a folder. cd stands for "change directory".
+cd .. to return to the previous folder.
+You can see what's in a file with "more <filename>".
+clear to empty the terminal.    
+"ls <flag>" to add a flag to a command to use it different ways. "-l"  (long list format). "-a (show all files, including the hiddden)
+"cd ../.. " is used to return two previous folders.
+mkdir stands for "make directory".
+"touch <filename>" is used to create a new file.
+cp <file> <destination> is used to copy files to another folder.
+rm <filename> is used to remove a file.
+mv <filename> <new_filename>. mv stands for "move", it can rename or move something.
+"find" used to find things or view a file tree. 
+"mkdir <folder_name>/<new_folder_name>" is used to create a folder into another folder.
+"find <folder_name>" is used to display the tree of a different folder.
+"find -name <filename>" is used to search for something. 
+"rmdir <directory_name>" is used to remove a folder.
+"rm -r" is used to remove directories and their contents recursively.
+"echo text >> filename" is used to print a text in one file.
+"cp -r" is used to copy files/directories recursively.
+"sh <file_name>" is used to run a script using the shell interpreter.
+"bash <file_name>" is used to run a script with bash interpreter. bash stands for bourne-again shell.
+"which bash" this comand is used to find where the bash interpreter is located
+
+//shebang: it used to tell your program to interpreter using
+"#!<path_to_interpreter"
+// -rw-r--r-- : describe permissions different users have with the file. r means read, w means write x means execute.
+"chmod +x questionnaire.sh" give everyone executable permissions.
+
+/////////// The following is done inside the script
+-Bash has variables, functions and other things. We can create a variable with "VARIABLE_NAME=VALUE" (withput spaces, If a variable has any spaces 
+in it, place double quotes around it).
+-To use a variable, place & in front of it like this: "$VARIABLE_NAME" (we can print it using "echo" into script).
+-"read VARIABLE_NAME" : this command create a variable that accept input from a user.
+-"echo $*" is used in the script to print all arguments passed to it (arguments are passed through the terminal), we can also can specify what 
+argument to use with "echo $1" (or any number).
+-Sintax for if:
+if [[ CONDITION ]]
+then
+  STATEMENTS
+else
+  STATEMENTS
+fi
+-Relational operators: -eq (equal), -ne (not equal), -lt (less than), -le (less than or equal), -gt (greater than), -ge (greater than or equal)
+-Sintax for:
+for (( i = n; i > n2; i-- ))
+do
+  echo $i
+done
+
+"man <command>" is another way to find information about commands (man means manual)
+"echo -e" is used to enable interpretation of backslash escapes
+"./File_name.sh arg1, arg2, ..." is used to pass arguments to a .sh file
+//Each command has an exit status that can be accessed with "$?". When we type a expresion like "[[ 4 -le 5 ]]" in the termina, we can view the exit status of the last command 
+with echo $?.
+//We can separate 2 diferents commands on a single line with ";" (example: [[ 10 -ne 5 ]]; echo $?).
+"[[ -a file_name ]]; echo $?" return true if file exist.
+"[[ -x file_name ]]: echo $?" return true if file is executable by you.
