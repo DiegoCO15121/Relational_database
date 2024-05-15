@@ -28,13 +28,14 @@ mv <filename> <new_filename>. mv stands for "move", it can rename or move someth
 // -rw-r--r-- : describe permissions different users have with the file. r means read, w means write x means execute.
 "chmod +x questionnaire.sh" give everyone executable permissions.
 
-/////////// The following is done inside the script
+/////////// The following is done inside the shell-script
 -Bash has variables, functions and other things. We can create a variable with "VARIABLE_NAME=VALUE" (withput spaces, If a variable has any spaces 
 in it, place double quotes around it).
 -To use a variable, place & in front of it like this: "$VARIABLE_NAME" (we can print it using "echo" into script).
 -"read VARIABLE_NAME" : this command create a variable that accept input from a user.
 -"echo $*" is used in the script to print all arguments passed to it (arguments are passed through the terminal), we can also can specify what 
 argument to use with "echo $1" (or any number).
+
 -Sintax for if:
 if [[ CONDITION ]]
 then
@@ -42,12 +43,43 @@ then
 else
   STATEMENTS
 fi
+
 -Relational operators: -eq (equal), -ne (not equal), -lt (less than), -le (less than or equal), -gt (greater than), -ge (greater than or equal)
+the above syntax is used when using bracket notation. With parenthesis notation no.
+"=~" we use it match regular expressions 
+
 -Sintax for:
 for (( i = n; i > n2; i-- ))
 do
   echo $i
 done
+
+-multiline comment:
+: '
+  comment here
+  more comment here
+'
+
+-Sintax for while:
+while [[ CONDITION ]]
+do
+  STATEMENTS
+done
+
+-Random number: "NUMBER=$(( RANDOM % 75 rm + 1 ))"
+
+-Functions sintaxis:
+FUNCTION_NAME() {
+  STATEMENTS
+}
+
+-Until loop: This loop os very similar to the while loop. It will execute the loop until a condition is met.
+until [[ CONDITION ]]
+do
+  STATEMENTS
+done
+
+
 
 "man <command>" is another way to find information about commands (man means manual)
 "echo -e" is used to enable interpretation of backslash escapes
@@ -57,3 +89,9 @@ with echo $?.
 //We can separate 2 diferents commands on a single line with ";" (example: [[ 10 -ne 5 ]]; echo $?).
 "[[ -a file_name ]]; echo $?" return true if file exist.
 "[[ -x file_name ]]: echo $?" return true if file is executable by you.
+-We use (( I-- )) to subtract one to variable (it can be within the script).
+-We use (( I++ )) to add one to varaible (it can be within the script). 
+"echo $(( I + 4 ))" is used to make calculations on the terminal (doesn't change the value of the variable).
+"ARR=("a" "b" "c")" is used to create an array.
+"echo ${ARR[1]}" is used to print to the terminal a specific position in the array (also we can use * to print all positions)
+"type <command>" Display information about command type
