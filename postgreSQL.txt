@@ -13,7 +13,8 @@
 "DELETE FROM table_name WHERE condition;" is used to delete a row.
 "DROP TABLE table_name;" is used to delete a table in a db.
 "ALTER DATABASE database_name RENAME TO new_database_name;" is used to rename a db.
-"DROP DATABASE name_database" is used to delete a db.
+"DROP DATABASE db_name" is used to delete a db.
+"TRUNCATE <column_name>"
 
 //SERIAL type will make a column an INT with a NOT NULL constraint, and automatically increment the integer when a new row is added (NOT NULL can be added right next to the data type). 
 "UPDATE table_name SET column_name=new_value WHERE condition;" is used to change a value into the db.
@@ -39,3 +40,42 @@ FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_col
 
 // pg_dump -cC --inserts -U freecodecamp universe > universe.sql
 //Rebuild database: psql -U postgres < universe.sql
+// pg_dump --clean --create --inserts --username=freecodecamp students > students.sql
+
+//Composite primary key: Uses more than one column as a unique pair
+"ALTER TABLE <table_name> ADD PRIMARY KEY(<column_name>, <column_name>);"
+
+//Query patterns
+"SELECT columns FROM table_name WHERE <column> LIKE '<pattern>';" (LIKE is used to find patterns in text).
+(NOT LIKE is used to find things that don't match a pattern).
+(ILKE  will ignore the case of the letters when matching).
+(NOT ILKE will ignore the case of the letters when not matching).
+"_" in a pattern will return rows that have any character in that spot.
+"%" it means anything can be there. 
+To search text that begins with some letter, "%" will go after the letter.
+To search text that ends with some letter, "%" will go before the letter.
+To search text that contains some letter: "%x%"
+"WHERE <colum_name> IS NULL/IS NOT NULL" to match or not to match patterns with null elements
+"ORDER BY <column_name> ASC/DESC, <column_name2>ASC/DESC" is used to specifies the order of the results. it will be in ascending order by default.
+ASC = ascending
+DESC = descending
+"LIMIT <number>" you can add it at the end of the queery to only get the amount you want.
+"SELECT MIN(<column>) FROM <table>" is used with numerical columns. It will find the lowest value in the column.
+"SELECT MAX(<column>) FROM <table>" It will find the largest value in the column.
+"SELECT SUM(<column>) FROM <table>" Is used to find out the value of the sum of values.
+"SELECT AVG(<column>) FROM <table>" Is used to find out the value of the average of values.
+"CEIL/FLOOR" round decimals up or down to the nearest whole number respectively. (example: SELECT CEIL(AVG(<column>)))
+"ROUND(<number_to_round>, <decimals_places>)" is used to round decimals to the nearest whole number. You can round to a specific number of decimal places by adding a comma and number.
+"SELECT COUNT(<column>) FROM <table>"  It will tell you how many entries are in a table for the column.
+"SELECT DISTINCT(<column>) FROM ..."  is a function that will show you only unique values.
+"SELECT <column> FROM <table> GROUP BY <column> HAVING <condition>"  is used to filter records in a result set after the GROUP BY clause has been applied. It is similar to the WHERE clause, 
+but HAVING is used for filtering aggregated data.
+"SELECT <column> AS <new_column_name>" is used to rename a column
+
+//JOINSs
+"SELECT * FROM <table_1> FULL JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" is used to join two tables
+"SELECT * FROM <table_1> LEFT JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" LEFT JOIN gets all rows from the left table, but only rows from the right 
+table that are linked to from the left one. (Example: if we have null values in the FK column of left table, this values won't appear in the query, but the null values of FK column in the rigth table will appear).
+"SELECT * FROM <table_1> RIGHT JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" It works the same as the LEFT JOIN.
+"SELECT * FROM <table_1> INNER JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" It only returned rows if they have a value in the foreign key 
+column of the opposite table. (Example: Null values of both tables of FK columns won't appear)

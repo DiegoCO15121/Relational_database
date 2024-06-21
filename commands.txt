@@ -79,8 +79,6 @@ do
   STATEMENTS
 done
 
-
-
 "man <command>" is another way to find information about commands (man means manual)
 "echo -e" is used to enable interpretation of backslash escapes
 "./File_name.sh arg1, arg2, ..." is used to pass arguments to a .sh file
@@ -95,3 +93,11 @@ with echo $?.
 "ARR=("a" "b" "c")" is used to create an array.
 "echo ${ARR[1]}" is used to print to the terminal a specific position in the array (also we can use * to print all positions)
 "type <command>" Display information about command type
+
+"cat <file_name>" is used to print the contents of a file
+IFS = Internal Field Separator. The variable is used to dtermine word boundaries. It defaults to spaces, tabs, and new lines.
+'PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"' This allow you to query your database from your script
+"$($PSQL "<query_here>")" Way to use PSQL varable
+"cp <file_name> <new_file_name>" is used to create another file with the same content of original file
+
+"[[ -z $<variable> ]]" is an "if" that checks if a variable is empety
