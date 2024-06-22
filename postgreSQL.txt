@@ -72,10 +72,14 @@ DESC = descending
 but HAVING is used for filtering aggregated data.
 "SELECT <column> AS <new_column_name>" is used to rename a column
 
-//JOINSs
+//JOINS
 "SELECT * FROM <table_1> FULL JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" is used to join two tables
 "SELECT * FROM <table_1> LEFT JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" LEFT JOIN gets all rows from the left table, but only rows from the right 
 table that are linked to from the left one. (Example: if we have null values in the FK column of left table, this values won't appear in the query, but the null values of FK column in the rigth table will appear).
 "SELECT * FROM <table_1> RIGHT JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" It works the same as the LEFT JOIN.
 "SELECT * FROM <table_1> INNER JOIN <table_2> ON <table_1>.<foreign_key_column> = <table_2>.<foreign_key_column>;" It only returned rows if they have a value in the foreign key 
 column of the opposite table. (Example: Null values of both tables of FK columns won't appear)
+"<table>.<column>" is used to specify which table you want to use in the query.
+"SELECT * FROM <table> AS <new_name>;" is useed to rename tables or guve them aliases.
+"SELECT * FROM <table_1> FULL JOIN <table_2> USING(<column>);" is used if the foreign key column has the same name in both tables. 
+"SELECT * FROM <table_1> FULL JOIN <table_2> USING(<column>) FULL JOIN <table_3> USING(<column>)" Add a third table to join
