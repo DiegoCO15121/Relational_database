@@ -64,6 +64,7 @@ DESC = descending
 "SELECT MAX(<column>) FROM <table>" It will find the largest value in the column.
 "SELECT SUM(<column>) FROM <table>" Is used to find out the value of the sum of values.
 "SELECT AVG(<column>) FROM <table>" Is used to find out the value of the average of values.
+"SELECT GREATEST(<column1>, <column2>)" is used to comparate two or more columns to get the highest value between the columns.
 "CEIL/FLOOR" round decimals up or down to the nearest whole number respectively. (example: SELECT CEIL(AVG(<column>)))
 "ROUND(<number_to_round>, <decimals_places>)" is used to round decimals to the nearest whole number. You can round to a specific number of decimal places by adding a comma and number.
 "SELECT COUNT(<column>) FROM <table>"  It will tell you how many entries are in a table for the column.
