@@ -7,7 +7,7 @@ CREATE TABLE students(
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     major_id INT, 
-    gpa NUMERIC(2,1),
+    gpa NUMERIC(2,1)
     
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE courses(
 
 CREATE TABLE majors_courses(
     major_id INT,
-    course_id INT,
+    course_id INT
 );
 
 ALTER TABLE students ADD FOREIGN KEY (major_id) REFERENCES majors(major_id); 
