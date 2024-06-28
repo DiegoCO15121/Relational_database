@@ -79,25 +79,50 @@ do
   STATEMENTS
 done
 
-"man <command>" is another way to find information about commands (man means manual)
-"echo -e" is used to enable interpretation of backslash escapes
-"./File_name.sh arg1, arg2, ..." is used to pass arguments to a .sh file
+"man <command>" is another way to find information about commands (man means manual).
+"echo -e" is used to enable interpretation of backslash escapes.
+"./File_name.sh arg1, arg2, ..." is used to pass arguments to a .sh file.
 //Each command has an exit status that can be accessed with "$?". When we type a expresion like "[[ 4 -le 5 ]]" in the termina, we can view the exit status of the last command 
 with echo $?.
 //We can separate 2 diferents commands on a single line with ";" (example: [[ 10 -ne 5 ]]; echo $?).
 "[[ -a file_name ]]; echo $?" return true if file exist.
 "[[ -x file_name ]]: echo $?" return true if file is executable by you.
 -We use (( I-- )) to subtract one to variable (it can be within the script).
--We use (( I++ )) to add one to varaible (it can be within the script). 
+-We use (( I++ )) to add one to varaible (it can be within the script). s
 "echo $(( I + 4 ))" is used to make calculations on the terminal (doesn't change the value of the variable).
 "ARR=("a" "b" "c")" is used to create an array.
-"echo ${ARR[1]}" is used to print to the terminal a specific position in the array (also we can use * to print all positions)
-"type <command>" Display information about command type
+"echo ${ARR[1]}" is used to print to the terminal a specific position in the array (also we can use * to print all positions).
+"type <command>" Display information about command type.
 
 "cat <file_name>" is used to print the contents of a file
 IFS = Internal Field Separator. The variable is used to dtermine word boundaries. It defaults to spaces, tabs, and new lines.
-'PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"' This allow you to query your database from your script
-"$($PSQL "<query_here>")" Way to use PSQL varable
-"cp <file_name> <new_file_name>" is used to create another file with the same content of original file
+'PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"' This allow you to query your database from your script.
+"$($PSQL "<query_here>")" Way to use PSQL varable.
+"cp <file_name> <new_file_name>" is used to create another file with the same content of original file.
 
-"[[ -z $<variable> ]]" is an "if" that checks if a variable is empety
+"[[ -z $<variable> ]]" is an "if" that checks if a variable is empety.
+
+"<command> > <filename>" redirects the command ouput to a file. if we use a single ">", a new file will be created; with ">>" the command will be appended.
+//There’s two types of output, stdout (standard out) for when a command is successful, and stderr (standard error) for when it’s not.
+With "2>" we can print the type stderr output to a file.
+With "1>" we can print the type stdout output to a file (is the same as ">").
+//stdin (standard in) is the third thing commands can use and is for getting input.
+"<command> < <filename_for_stdin>" redirects the command ipunt to a file.
+//Another way to set the stdin is by using the pipe (|). It will use the output from one command as input for another. Here's an example: <command_1> | <command_2>. 
+This will take the stdout from command_1 and use it as the stdin for command_2.  it run the command in a subshell or subprocess. it won't affect the variables previous set.
+//wc
+"wc <file_name>" Stands for word count. It showed you how many lines were in the file, how many words, and how many bytes.
+"-l" this flag is used to know how many lines are in the file, "-w" to words, "-m" to characters.
+//grep
+"grep '<pattern>' <filename>" is used to search for patterns in text.
+grep '<pattern1>|<pattern2>'
+"--color"flag is used to highlight matching words.
+"-n" flag is used to show all the line numbers where matching words.
+"-c" flag is used to get a count of lines where matching words.
+"-o" flag give you each match on it's own line.
+//sed
+sed 's/<pattern_to_replace>/<text_to_replace_it_with>/' <filename> is used to repalce text. After the last '/' we can add regex flags like: 'g' for global & 'i' to ignore the case of the pattern
+"-r" is a flag to sed, it extended a regular expression (example:sed 's/[0-9]+/1/' won't detect '+' but sed -r 's/[0-9]+/1/' will detect )
+"sed 's/<pattern_1>/<replacement_1>/; s/<pattern_2>/<replacement_2>/'" (replace many patterns)
+//diff
+"diff <file_1> <file_2>." is used to view the difference between two files.
