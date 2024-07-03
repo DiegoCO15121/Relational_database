@@ -73,6 +73,8 @@ FUNCTION_NAME() {
   STATEMENTS
 }
 
+FUNCTION_CALL "<argument_message>" //Add argunments when we call functions
+
 -Until loop: This loop os very similar to the while loop. It will execute the loop until a condition is met.
 until [[ CONDITION ]]
 do
@@ -126,3 +128,14 @@ sed 's/<pattern_to_replace>/<text_to_replace_it_with>/' <filename> is used to re
 "sed 's/<pattern_1>/<replacement_1>/; s/<pattern_2>/<replacement_2>/'" (replace many patterns)
 //diff
 "diff <file_1> <file_2>." is used to view the difference between two files.
+
+-Sintax for case:
+case EXPRESSION in
+  PATTERN) STATEMENTS ;;
+  PATTERN) STATEMENTS ;;
+  PATTERN) STATEMENTS ;;
+  *) STATEMENTS ;;
+esac
+
+//Sintax for subshell (it usually use for PSQL commands)
+VARIABLE=$(<command>)
