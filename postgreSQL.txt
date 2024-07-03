@@ -17,7 +17,7 @@
 "TRUNCATE <column_name>"
 
 //SERIAL type will make a column an INT with a NOT NULL constraint, and automatically increment the integer when a new row is added (NOT NULL can be added right next to the data type). 
-"UPDATE table_name SET column_name=new_value WHERE condition;" is used to change a value into the db.
+"UPDATE <table> SET <column> = <value> WHERE <condition>;" is used to change a value into the db.
 "SELECT columns FROM table_name ORDER BY column_name;" is used to put table data in order.
 "ALTER TABLE table_name ADD PRIMARY KEY(column_name);" is used to add a primary key ( It's a column that uniquely identifies each row in the table).
 "ALTER TABLE table_name DROP CONSTRAINT constraint_name;" is used to drop a constraint.
