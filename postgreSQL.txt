@@ -84,3 +84,7 @@ column of the opposite table. (Example: Null values of both tables of FK columns
 "SELECT * FROM <table> AS <new_name>;" is useed to rename tables or guve them aliases.
 "SELECT * FROM <table_1> FULL JOIN <table_2> USING(<column>);" is used if the foreign key column has the same name in both tables. 
 "SELECT * FROM <table_1> FULL JOIN <table_2> USING(<column>) FULL JOIN <table_3> USING(<column>)" Add a third table to join
+
+//Reset sequences of PK
+SELECT pg_get_serial_sequence('<table_name>', '<column_name_PK>');
+SELECT setval('<sequence_name>', <number to reset>, false);
