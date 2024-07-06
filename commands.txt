@@ -139,3 +139,7 @@ esac
 
 //Sintax for subshell (it usually use for PSQL commands)
 VARIABLE=$(<command>)
+
+//NANO: program for editing files that runs in the terminal (Only on linux).
+"nano <filename>" is used to create or open a file with nano.
+"bash <filename>" We can run our file with this command.
