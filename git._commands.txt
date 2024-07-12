@@ -1,0 +1,50 @@
+Git is a version control system to keep track of your code.
+A git repository has branches to help keep track of things you are doing with your code.
+
+"git init" this command create a folder ".git". It's what keeps track of all the things in your repository.
+
+"git status" is used to see the status of where you are.
+
+"git checkout new_branch" is used to create and go to a new branch.
+//git checkout -b branch_name is used to create a new branch and then switched to it.
+
+"git add file_name" is used to add a file to the staging area. (file_name can be replaced by "." or "*" to add all changes).
+
+"git commit -m "Initial commit"" -m stands for "message" this command is used to make commit.
+
+"git log" is used to check your commit history.
+//--oneline flag to condense the output so it's more readable.
+//-# is used to view a specifict number of the lastest commit.
+
+"git diff" is used to see the chnges that you made.
+
+"git branch" is used to see the current branches in your repo. we can type the name of a branch to create a new one. "git branch branch_name"
+//git branch -d branch_name is used to delete a branch "-d" stands delete.
+
+"gir merge branch_name" is used to bring the changes from a branch into the branch you're currently on. Merge the changes from your feature 
+branch into the main branch.
+
+"git rebase branch_name" is used to rebase a branch
+//git rebase --interactive HEAD~# is used to enter an interactive mode to manipulate commits. (# is the number of the last commits that you 
+want to change, also we can use --root to show from the first commit).
+
+"git stash" is used to  put your changes aside so you can add them to a different branch.
+
+"git stash list" is used to view the things that you've stashed.
+
+"git stash pop" is used to bring the changes back.
+
+"git stash show" is used to view a condesed version of the changes in the latest stash.
+//We can see the stash we want by referencing it at the end of the command (git stash show stash@{0}).
+//-p  is used to view the full changes of the latest stash, it stands "patch".
+
+"git stash apply" is sued to add the latest stash while keeping it in the list.
+
+"git reset" is sued to travel to any point in your commit history.
+// If you used the --hard flag with the reset, the changes would have not been added to the working tree and if you used the --soft flag, the changes would have been added 
+to the working tree and to staging.
+
+"git revert HEAD" is used to revert the most recent commit. (HEAD~# is used to specify which commit we want to revert). 
+
+.env files are used to store environment variables for running code. Often times, there may be sensitive information in it. 
+.gitignore is used to wirte teh files taht you dn't want to include in a repository.
